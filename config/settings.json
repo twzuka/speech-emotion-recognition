@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "sample_rate": 16000,
+  "emotions": [
+    "neutral",
+    "calm",
+    "happy",
+    "sad",
+    "angry",
+    "fearful",
+    "disgust",
+    "surprised"
+  ]
+}
