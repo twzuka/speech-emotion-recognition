@@ -10,3 +10,4 @@ streamlit
 pytest
 jupyter
 ipykernel
+tensorflow[and-cuda]==2.21.0
