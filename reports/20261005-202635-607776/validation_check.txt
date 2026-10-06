@@ -1,0 +1,45 @@
+Модель: /home/twzuka/projects/speech-emotion-recognition/models/20261005-202635-607776/best.keras
+Архитектура: speech_emotion_cnn_time_pool
+Параметров: 158792
+Лучшая эпоха: 68
+
+TRAIN: 960 записей
+              precision    recall  f1-score   support
+
+     neutral     0.7667    0.3594    0.4894        64
+        calm     0.7580    0.9297    0.8351       128
+       happy     0.7727    0.6641    0.7143       128
+         sad     0.5130    0.6172    0.5603       128
+       angry     0.9274    0.8984    0.9127       128
+     fearful     0.8737    0.6484    0.7444       128
+     disgust     0.8296    0.8750    0.8517       128
+   surprised     0.7032    0.8516    0.7703       128
+
+    accuracy                         0.7552       960
+   macro avg     0.7680    0.7305    0.7348       960
+weighted avg     0.7681    0.7552    0.7511       960
+
+
+VALIDATION: 240 записей
+              precision    recall  f1-score   support
+
+     neutral     1.0000    0.0625    0.1176        16
+        calm     0.6250    0.7812    0.6944        32
+       happy     0.5238    0.3438    0.4151        32
+         sad     0.1892    0.2188    0.2029        32
+       angry     0.5641    0.6875    0.6197        32
+     fearful     0.4524    0.5938    0.5135        32
+     disgust     0.5385    0.4375    0.4828        32
+   surprised     0.7353    0.7812    0.7576        32
+
+    accuracy                         0.5167       240
+   macro avg     0.5785    0.4883    0.4755       240
+weighted avg     0.5504    0.5167    0.4993       240
+
+Macro F1 сейчас: 0.4754563244
+Macro F1 в run_info: 0.4754563244
+Accuracy по дикторам validation:
+Actor 17: 30/60 (50.00%)
+Actor 18: 30/60 (50.00%)
+Actor 19: 33/60 (55.00%)
+Actor 20: 31/60 (51.67%)
