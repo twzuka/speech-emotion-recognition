@@ -1,0 +1,171 @@
+{
+  "run": "20261006-184235-498641",
+  "model_path": "/home/twzuka/projects/speech-emotion-recognition/models/20261006-184235-498641/best.keras",
+  "split": "test",
+  "samples": 240,
+  "test_actors": [
+    21,
+    22,
+    23,
+    24
+  ],
+  "best_epoch": 82,
+  "selection_metric": "val_macro_f1",
+  "accuracy": 0.4583333333333333,
+  "macro_f1": 0.39758086314544705,
+  "emotions": [
+    "neutral",
+    "calm",
+    "happy",
+    "sad",
+    "angry",
+    "fearful",
+    "disgust",
+    "surprised"
+  ],
+  "classification_report": {
+    "neutral": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 16.0
+    },
+    "calm": {
+      "precision": 0.5806451612903226,
+      "recall": 0.5625,
+      "f1-score": 0.5714285714285714,
+      "support": 32.0
+    },
+    "happy": {
+      "precision": 0.35294117647058826,
+      "recall": 0.375,
+      "f1-score": 0.36363636363636365,
+      "support": 32.0
+    },
+    "sad": {
+      "precision": 0.21428571428571427,
+      "recall": 0.1875,
+      "f1-score": 0.2,
+      "support": 32.0
+    },
+    "angry": {
+      "precision": 0.49019607843137253,
+      "recall": 0.78125,
+      "f1-score": 0.6024096385542169,
+      "support": 32.0
+    },
+    "fearful": {
+      "precision": 0.5454545454545454,
+      "recall": 0.1875,
+      "f1-score": 0.27906976744186046,
+      "support": 32.0
+    },
+    "disgust": {
+      "precision": 0.4782608695652174,
+      "recall": 0.6875,
+      "f1-score": 0.5641025641025641,
+      "support": 32.0
+    },
+    "surprised": {
+      "precision": 0.5526315789473685,
+      "recall": 0.65625,
+      "f1-score": 0.6,
+      "support": 32.0
+    },
+    "accuracy": 0.4583333333333333,
+    "macro avg": {
+      "precision": 0.40180189055564114,
+      "recall": 0.4296875,
+      "f1-score": 0.39758086314544705,
+      "support": 240.0
+    },
+    "weighted avg": {
+      "precision": 0.42858868325935057,
+      "recall": 0.4583333333333333,
+      "f1-score": 0.42408625402181016,
+      "support": 240.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      0,
+      3,
+      4,
+      7,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      1,
+      18,
+      0,
+      8,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      12,
+      0,
+      3,
+      5,
+      5,
+      7
+    ],
+    [
+      0,
+      10,
+      6,
+      6,
+      1,
+      0,
+      8,
+      1
+    ],
+    [
+      0,
+      0,
+      5,
+      0,
+      25,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      7,
+      7,
+      2,
+      6,
+      4,
+      6
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      9,
+      0,
+      22,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      11,
+      0,
+      0,
+      21
+    ]
+  ]
+}
