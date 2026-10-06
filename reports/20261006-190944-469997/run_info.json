@@ -1,0 +1,88 @@
+{
+  "started_utc": "2026-10-06T19:09:44.469997+00:00",
+  "settings": {
+    "seed": 42,
+    "sample_rate": 16000,
+    "duration": 5.0,
+    "n_mels": 64,
+    "n_fft": 1024,
+    "hop_length": 256,
+    "emotions": [
+      "neutral",
+      "calm",
+      "happy",
+      "sad",
+      "angry",
+      "fearful",
+      "disgust",
+      "surprised"
+    ]
+  },
+  "training": {
+    "epochs": 150,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "early_stopping_patience": 25,
+    "reduce_lr_factor": 0.5,
+    "reduce_lr_patience": 8,
+    "min_learning_rate": 1e-05
+  },
+  "balance_classes": true,
+  "train_class_counts": [
+    64,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128
+  ],
+  "class_weight": {
+    "0": 1.875,
+    "1": 0.9375,
+    "2": 0.9375,
+    "3": 0.9375,
+    "4": 0.9375,
+    "5": 0.9375,
+    "6": 0.9375,
+    "7": 0.9375
+  },
+  "epochs_override": null,
+  "input_shape": [
+    64,
+    313,
+    1
+  ],
+  "selection_metric": "val_macro_f1",
+  "train_actors": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "validation_actors": [
+    17,
+    18,
+    19,
+    20
+  ],
+  "tensorflow_version": "2.21.0",
+  "keras_version": "3.15.1",
+  "status": "completed",
+  "epochs_completed": 114,
+  "best_epoch": 89,
+  "best_validation_macro_f1": 0.534280985444124
+}
