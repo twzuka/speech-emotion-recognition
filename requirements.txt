@@ -229,6 +229,8 @@ rpds-py==2026.6.3
     # via
     #   jsonschema
     #   referencing
+ruff==0.17.3
+    # via -r requirements.in
 scikit-learn==1.9.1
     # via
     #   -r requirements.in
