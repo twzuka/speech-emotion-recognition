@@ -54,9 +54,9 @@ def main():
         run_dir = ROOT / run_dir
     run_dir = run_dir.resolve()
 
-    settings = json.loads((ROOT / "config/settings.json").read_text())
-    splits = json.loads((ROOT / "config/splits.json").read_text())
-    info = json.loads((run_dir / "run_info.json").read_text())
+    settings = json.loads((ROOT / "config/settings.json").read_text(encoding="utf-8"))
+    splits = json.loads((ROOT / "config/splits.json").read_text(encoding="utf-8"))
+    info = json.loads((run_dir / "run_info.json").read_text(encoding="utf-8"))
     validate_run(info, settings, splits)
     x_test, y_test, actors = load_split("test", settings, splits)
     if list(x_test.shape[1:]) != info["input_shape"]:
