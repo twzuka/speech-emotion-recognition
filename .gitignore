@@ -16,8 +16,9 @@ __pycache__/
 /release/
 *.zip
 
-# Test cache
+# Test and linter cache
 .pytest_cache/
+.ruff_cache/
 
 # Local tool settings
 .claude/settings.local.json

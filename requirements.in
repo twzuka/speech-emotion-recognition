@@ -6,4 +6,5 @@ scikit-learn
 matplotlib
 streamlit
 pytest
+ruff
 tensorflow[and-cuda]==2.21.0

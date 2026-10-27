@@ -1,0 +1,7 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+# Правила по умолчанию и сортировка импортов.
+extend-select = ["I"]
