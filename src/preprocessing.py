@@ -1,9 +1,13 @@
+"""Общая предобработка для обучения и распознавания: WAV → log-Mel."""
+
+from pathlib import Path
+
 import librosa
 import numpy as np
 
 
-def audio_to_logmel(path, settings):
-    """Преобразует аудио в log-Mel спектрограмму."""
+def audio_to_logmel(path: str | Path, settings: dict) -> np.ndarray:
+    """Преобразовать аудио в log-Mel спектрограмму формы (n_mels, кадры)."""
 
     # Читаем первые пять секунд, переводим в моно и 16000 Гц.
     audio, _ = librosa.load(

@@ -24,7 +24,7 @@ from src.train import load_split
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def validate_run(info: dict, settings: dict, splits: dict):
+def validate_run(info: dict, settings: dict, splits: dict) -> None:
     """Проверить настройки запуска и независимость test по дикторам."""
     if info["status"] != "completed":
         raise ValueError("Обучение этого запуска не завершено")
@@ -40,7 +40,7 @@ def validate_run(info: dict, settings: dict, splits: dict):
         raise ValueError("Дикторы train, validation и test пересекаются")
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--run-dir",

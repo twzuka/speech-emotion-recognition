@@ -15,7 +15,9 @@ from src.model import build_cnn
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_split(name: str, settings: dict, splits: dict):
+def load_split(
+    name: str, settings: dict, splits: dict
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Прочитать выборку и проверить её соответствие конфигурации."""
     path = ROOT / "data" / "processed" / f"{name}.npz"
     with np.load(path, allow_pickle=False) as data:
@@ -46,13 +48,15 @@ def load_split(name: str, settings: dict, splits: dict):
 class ValidationMacroF1(keras.callbacks.Callback):
     """Добавить macro F1 всей validation в журнал каждой эпохи."""
 
-    def __init__(self, x, y, batch_size: int, num_classes: int):
+    def __init__(
+        self, x: np.ndarray, y: np.ndarray, batch_size: int, num_classes: int
+    ) -> None:
         super().__init__()
         self.x, self.y = x, y
         self.batch_size = batch_size
         self.labels = np.arange(num_classes)
 
-    def on_epoch_end(self, epoch, logs=None):
+    def on_epoch_end(self, epoch: int, logs: dict | None = None) -> None:
         predictions = []
         for start in range(0, len(self.x), self.batch_size):
             output = self.model(
@@ -74,7 +78,7 @@ class ValidationMacroF1(keras.callbacks.Callback):
         print(f" — val_macro_f1: {score:.4f}", flush=True)
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--epochs", type=int, help="Заменить максимум эпох")
     parser.add_argument(

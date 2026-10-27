@@ -17,7 +17,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--run-dir", type=Path, required=True)
+    parser.add_argument(
+        "--run-dir",
+        type=Path,
+        required=True,
+        help="Папка запуска с best.keras и run_info.json",
+    )
     args = parser.parse_args()
     run_dir = args.run_dir
     if not run_dir.is_absolute():
