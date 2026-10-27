@@ -94,7 +94,7 @@ def main():
     macro_f1 = float(
         f1_score(y_test, y_pred, labels=labels, average="macro", zero_division=0)
     )
-    report_args = dict(labels=labels, target_names=emotions, zero_division=0)
+    report_args = {"labels": labels, "target_names": emotions, "zero_division": 0}
     report_text = classification_report(y_test, y_pred, digits=4, **report_args)
     report_dict = classification_report(y_test, y_pred, output_dict=True, **report_args)
     matrix = confusion_matrix(y_test, y_pred, labels=labels)
