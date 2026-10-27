@@ -23,9 +23,9 @@ def main() -> None:
     if not run_dir.is_absolute():
         run_dir = ROOT / run_dir
 
-    settings = json.loads((ROOT / "config/settings.json").read_text())
-    splits = json.loads((ROOT / "config/splits.json").read_text())
-    info = json.loads((run_dir / "run_info.json").read_text())
+    settings = json.loads((ROOT / "config/settings.json").read_text(encoding="utf-8"))
+    splits = json.loads((ROOT / "config/splits.json").read_text(encoding="utf-8"))
+    info = json.loads((run_dir / "run_info.json").read_text(encoding="utf-8"))
     validate_run(info, settings, splits)
 
     for gpu in tf.config.list_physical_devices("GPU"):

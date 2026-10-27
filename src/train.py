@@ -83,9 +83,9 @@ def main():
         help="Взвешивать ошибки классов обратно пропорционально их числу в train",
     )
     args = parser.parse_args()
-    settings = json.loads((ROOT / "config/settings.json").read_text())
-    splits = json.loads((ROOT / "config/splits.json").read_text())
-    training = json.loads((ROOT / "config/training.json").read_text())
+    settings = json.loads((ROOT / "config/settings.json").read_text(encoding="utf-8"))
+    splits = json.loads((ROOT / "config/splits.json").read_text(encoding="utf-8"))
+    training = json.loads((ROOT / "config/training.json").read_text(encoding="utf-8"))
     if args.epochs is not None:
         training["epochs"] = args.epochs
     for key in (
@@ -154,7 +154,9 @@ def main():
         "status": "started",
     }
     info_path = run_dir / "run_info.json"
-    info_path.write_text(json.dumps(info, ensure_ascii=False, indent=2) + "\n")
+    info_path.write_text(
+        json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
 
     with tf.device("/GPU:0"):
         model = build_cnn(x_train.shape[1:], len(settings["emotions"]))
@@ -221,7 +223,9 @@ def main():
             "best_validation_macro_f1": float(scores[best_index]),
         }
     )
-    info_path.write_text(json.dumps(info, ensure_ascii=False, indent=2) + "\n")
+    info_path.write_text(
+        json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     print(f"Лучшая эпоха: {best_index + 1}")
     print(f"Лучший validation macro F1: {scores[best_index]:.4f}")
     print("Модель:", model_path)
