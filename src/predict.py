@@ -91,7 +91,7 @@ def main():
     print("Предсказанная эмоция:", emotion)
     print("Вероятности модели:")
     for index in np.argsort(-probabilities):
-        print(f"  {predictor.emotions[index]:12s}" f" {probabilities[index]:7.2%}")
+        print(f"  {predictor.emotions[index]:12s} {probabilities[index]:7.2%}")
 
 
 if __name__ == "__main__":

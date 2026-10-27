@@ -37,11 +37,7 @@ def test_all_actors_present():
 
 def test_no_repeated_actors():
     splits = read_config("splits.json")
-    actors = [
-        actor
-        for group in splits.values()
-        for actor in group
-    ]
+    actors = [actor for group in splits.values() for actor in group]
 
     assert len(actors) == len(set(actors)), (
         "Диктор повторяется внутри выборки или между выборками"

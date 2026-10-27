@@ -37,7 +37,7 @@ def main():
     )
 
     st.title("Распознавание эмоций по голосу")
-    st.caption("Учебная модель, обученная на актёрской речи " "на английском языке.")
+    st.caption("Учебная модель, обученная на актёрской речи на английском языке.")
     st.write(
         "Загрузите WAV-файл с речью. "
         "Для распознавания используются первые пять секунд записи."
@@ -67,7 +67,8 @@ def main():
                 audio_path.write_bytes(audio_bytes)
                 emotion, probabilities = predictor.predict(audio_path)
 
-    except Exception as error:
+    # Любая ошибка чтения или распознавания показывается пользователю.
+    except Exception as error:  # noqa: BLE001
         message = str(error).strip()
 
         if "Запись полностью беззвучна" in message:

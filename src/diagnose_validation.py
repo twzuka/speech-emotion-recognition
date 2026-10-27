@@ -80,8 +80,7 @@ def main() -> None:
                 correct = int(np.sum(predicted[mask] == y[mask]))
                 count = int(mask.sum())
                 print(
-                    f"Actor {int(actor):02d}: {correct}/{count} "
-                    f"({correct / count:.2%})"
+                    f"Actor {int(actor):02d}: {correct}/{count} ({correct / count:.2%})"
                 )
 
 

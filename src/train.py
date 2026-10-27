@@ -2,7 +2,7 @@
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import numpy as np
@@ -133,7 +133,7 @@ def main():
     )
     print("Веса классов:", class_weight, flush=True)
 
-    started = datetime.now(timezone.utc)
+    started = datetime.now(UTC)
     run_dir = ROOT / "models" / started.strftime("%Y%m%d-%H%M%S-%f")
     run_dir.mkdir(parents=True, exist_ok=False)
     model_path = run_dir / "best.keras"
