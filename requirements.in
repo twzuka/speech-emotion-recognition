@@ -4,10 +4,6 @@ librosa
 soundfile
 scikit-learn
 matplotlib
-seaborn
-joblib
 streamlit
 pytest
-jupyter
-ipykernel
 tensorflow[and-cuda]==2.21.0
