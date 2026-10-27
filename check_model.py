@@ -1,4 +1,4 @@
-"""Check the released model and run one inference on the CPU."""
+"""Проверка контрольных сумм модели и одного вычисления на CPU."""
 
 import hashlib
 import os
@@ -19,7 +19,7 @@ HASHES = {
 }
 
 
-def main():
+def main() -> None:
     for name, expected in HASHES.items():
         actual = hashlib.sha256((RUN_DIR / name).read_bytes()).hexdigest()
         if actual != expected:

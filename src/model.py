@@ -7,7 +7,7 @@ def build_cnn(
     input_shape: tuple[int, int, int] = (64, 313, 1),
     num_classes: int = 8,
 ) -> keras.Model:
-    """Сохранить частотные области после трёх блоков свёрток."""
+    """Построить CNN; после свёрток усреднение идёт только по времени."""
     time_bins = input_shape[1] // 8
     if input_shape[0] < 8 or time_bins < 1:
         raise ValueError("Вход слишком мал для трёх блоков MaxPooling2D")

@@ -12,7 +12,7 @@ from src.preprocessing import audio_to_logmel
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def project_path(path):
+def project_path(path: str | Path) -> Path:
     """Разрешить относительный путь от корня проекта."""
     path = Path(path)
     if not path.is_absolute():
@@ -23,7 +23,7 @@ def project_path(path):
 class EmotionPredictor:
     """Загрузить модель и использовать её для отдельных записей."""
 
-    def __init__(self, run_dir):
+    def __init__(self, run_dir: str | Path) -> None:
         run_dir = project_path(run_dir)
         info = json.loads((run_dir / "run_info.json").read_text(encoding="utf-8"))
         settings = json.loads(
@@ -44,7 +44,7 @@ class EmotionPredictor:
         if tuple(self.model.output_shape[1:]) != (len(self.emotions),):
             raise ValueError("Число выходов модели не совпадает с числом эмоций")
 
-    def predict(self, audio_path):
+    def predict(self, audio_path: str | Path) -> tuple[str, np.ndarray]:
         """Вернуть название эмоции и вероятности всех классов."""
         audio_path = project_path(audio_path)
         if not audio_path.is_file():
@@ -74,14 +74,18 @@ class EmotionPredictor:
         return emotion, probabilities
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--run-dir",
         required=True,
         help="Папка запуска с best.keras и run_info.json",
     )
-    parser.add_argument("--audio", required=True, help="Путь к WAV-файлу")
+    parser.add_argument(
+        "--audio",
+        required=True,
+        help="Путь к WAV-файлу; используются первые пять секунд",
+    )
     args = parser.parse_args()
 
     predictor = EmotionPredictor(args.run_dir)

@@ -24,12 +24,12 @@ EMOTION_NAMES = {
 
 
 @st.cache_resource
-def load_predictor():
+def load_predictor() -> EmotionPredictor:
     """Сохранить загруженную модель в памяти приложения."""
     return EmotionPredictor(RUN_DIR)
 
 
-def main():
+def main() -> None:
     st.set_page_config(
         page_title="Распознавание эмоций",
         page_icon="🎙️",
