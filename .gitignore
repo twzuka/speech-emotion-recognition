@@ -10,8 +10,14 @@ __pycache__/
 
 # Trained models
 /models/
+*.keras
+
+# Release assets
+/release/
+*.zip
 
 # Test cache
 .pytest_cache/
+
 # Local tool settings
 .claude/settings.local.json
