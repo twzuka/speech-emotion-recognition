@@ -13,3 +13,5 @@ __pycache__/
 
 # Test cache
 .pytest_cache/
+# Local tool settings
+.claude/settings.local.json
