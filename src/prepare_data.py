@@ -1,3 +1,6 @@
+"""Подготовка train.npz, validation.npz и test.npz с log-Mel спектрограммами."""
+
+import argparse
 import json
 from pathlib import Path
 
@@ -9,11 +12,8 @@ from src.preprocessing import audio_to_logmel
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def main():
-    settings = json.loads((ROOT / "config/settings.json").read_text(encoding="utf-8"))
-    splits = json.loads((ROOT / "config/splits.json").read_text(encoding="utf-8"))
-    metadata = pd.read_csv(ROOT / "data/processed/metadata.csv")
-
+def check_metadata(metadata: pd.DataFrame, splits: dict) -> None:
+    """Проверить уникальность путей и состав дикторов каждой выборки."""
     if not metadata["path"].is_unique:
         raise ValueError("В metadata.csv повторяются пути файлов")
 
@@ -25,6 +25,14 @@ def main():
         rows = metadata[metadata["split"] == split]
         if set(rows["actor"]) != set(actors):
             raise ValueError(f"Неверный состав дикторов: {split}")
+
+
+def main() -> None:
+    argparse.ArgumentParser(description=__doc__).parse_args()
+    settings = json.loads((ROOT / "config/settings.json").read_text(encoding="utf-8"))
+    splits = json.loads((ROOT / "config/splits.json").read_text(encoding="utf-8"))
+    metadata = pd.read_csv(ROOT / "data/processed/metadata.csv")
+    check_metadata(metadata, splits)
 
     emotion_ids = {name: index for index, name in enumerate(settings["emotions"])}
 
